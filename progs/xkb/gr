@@ -1,0 +1,276 @@
+// Hellenic keyboard map for X.org
+//
+// Original version:
+//   Kostas Gewrgiou <gewrgiou@imbc.gr>
+// Heavily modified and maintained by:
+//   Vasilis Vasaitis <vvas@hal.csd.auth.gr>
+// Originally converted to single group form by:
+//   Ivan Pascal <pascal@info.tsu.ru>
+// Final modifications for proper support of
+//   the Hellenic language by:
+//   Web Dolphins® <foo@foofootus.eu>
+
+
+default  partial alphanumeric_keys alternate_group
+xkb_symbols "basic" {
+	include "gr(simple)"
+
+	name[Group1] = "Greek";
+
+	include "eurosign(e)"
+	include "eurosign(5)"
+	include "kpdl(comma)"
+	include "level3(ralt_switch)"
+
+	key <AB01> { [       NoSymbol,       NoSymbol,          U037D,          U03FF ] };
+	key <AB02> { [       NoSymbol,       NoSymbol,     rightarrow,      leftarrow ] };
+	key <AB03> { [       NoSymbol,       NoSymbol,      copyright                 ] };
+	key <AB04> { [       NoSymbol,       NoSymbol,          U03D6                 ] };
+	key <AB05> { [       NoSymbol,       NoSymbol,          U03D0                 ] };
+	key <AB06> { [       NoSymbol,       NoSymbol,          U0374,          U0375 ] };
+	key <AB07> { [       NoSymbol,       NoSymbol,          U03FB,          U03FA ] };
+	key <AB08> { [       NoSymbol,       NoSymbol,  guillemotleft                 ] };
+	key <AB09> { [       NoSymbol,       NoSymbol, guillemotright, periodcentered ] };
+	key <AC03> { [       NoSymbol,       NoSymbol,      downarrow,        uparrow ] };
+	key <AC04> { [       NoSymbol,       NoSymbol,          U03D5                 ] };
+	key <AC05> { [       NoSymbol,       NoSymbol,          U03DD,          U03DC ] };
+	key <AC07> { [       NoSymbol,       NoSymbol,          U037C,          U03FE ] };
+	key <AC08> { [       NoSymbol,       NoSymbol,          U03DF,          U03DE ] };
+	key <AC09> { [       NoSymbol,       NoSymbol,          U03F2,          U03F9 ] };
+	key <AC10> { [       dead_acute,     dead_psili,     dead_acute,     dead_psili ] };
+	key <AC11> { [       dead_grave,     dead_dasia,     dead_grave,     dead_dasia ] };
+	key <AD01> { [       NoSymbol,       NoSymbol, periodcentered                 ] };
+	key <AD02> { [       NoSymbol,       NoSymbol,          U03DB,          U03DA ] };
+	key <AD04> { [       NoSymbol,       NoSymbol,     registered,          U03F1 ] };
+	key <AD06> { [       NoSymbol,       NoSymbol,          U03D2,          U03D2 ] };
+	key <AD07> { [       NoSymbol,       NoSymbol,          U03D1,          U03F4 ] };
+	key <AD08> { [       NoSymbol,       NoSymbol,          U037B,          U03FD ] };
+	key <AD10> { [       NoSymbol,       NoSymbol,          U03E1,          U03E0 ] };
+	key <AD11> { [       dead_tilde,     dead_macron,    NoSymbol,       NoSymbol ] };
+	key <AD12> { [       dead_iota,      dead_breve,     NoSymbol,       NoSymbol ] };
+	key <AE01> { [       NoSymbol,       NoSymbol,       NoSymbol,    onesuperior ] };
+	key <AE02> { [       NoSymbol,       NoSymbol,        onehalf,    twosuperior ] };
+	key <AE03> { [       NoSymbol,       NoSymbol,       sterling,  threesuperior ] };
+	key <AE04> { [       NoSymbol,       NoSymbol,     onequarter,  threequarters ] };
+	key <AE06> { [       NoSymbol,       NoSymbol,          U03F0                 ] };
+	key <AE07> { [       NoSymbol,       NoSymbol,          U03D7,          U03CF ] };
+	key <AE08> { [       NoSymbol,       NoSymbol,          U20AF                 ] };
+	key <AE10> { [       NoSymbol,       NoSymbol,         degree                 ] };
+	key <AE11> { [       NoSymbol,       NoSymbol,      plusminus                 ] };
+};
+
+partial alphanumeric_keys alternate_group
+xkb_symbols "simple" {
+
+    include "gr(bare)"
+
+    name[Group1] = "Greek (simple)";
+
+    key <TLDE> { [        grave,  asciitilde ] }; // ` ~
+    key <AE01> { [            1,      exclam ] }; // 1 !
+    key <AE02> { [            2,          at ] }; // 2 @
+    key <AE03> { [            3,  numbersign ] }; // 3 #
+    key <AE04> { [            4,      dollar ] }; // 4 $
+    key <AE05> { [            5,     percent ] }; // 5 %
+    key <AE06> { [            6, asciicircum ] }; // 6 ^
+    key <AE07> { [            7,   ampersand ] }; // 7 &
+    key <AE08> { [            8,    asterisk ] }; // 8 *
+    key <AE09> { [            9,   parenleft ] }; // 9 (
+    key <AE10> { [            0,  parenright ] }; // 0 )
+    key <AE11> { [        minus,  underscore ] }; // - _
+    key <AE12> { [        equal,        plus ] }; // = +
+
+    key <AD11> { [  bracketleft,   braceleft ] }; // [ {
+    key <AD12> { [ bracketright,  braceright ] }; // ] }
+
+    key <AC11> { [   apostrophe,    quotedbl ] }; // ' "
+
+    key <AB08> { [        comma,        less ] }; // , <
+    key <AB09> { [       period,     greater ] }; // . >
+    key <AB10> { [        slash,    question ] }; // / ?
+    key <BKSL> { [    backslash,         bar ] }; // \ |
+
+    include "kpdl(comma)"
+};
+
+hidden partial alphanumeric_keys alternate_group
+xkb_symbols "bare" {
+
+    key <AD01> { [             semicolon,          colon ] }; // ; :
+    key <AD02> { [ Greek_finalsmallsigma,    Greek_SIGMA ] }; // ς Σ
+    key <AD03> { [         Greek_epsilon,  Greek_EPSILON ] }; // ε Ε
+    key <AD04> { [             Greek_rho,      Greek_RHO ] }; // ρ Ρ
+    key <AD05> { [             Greek_tau,      Greek_TAU ] }; // τ Τ
+    key <AD06> { [         Greek_upsilon,  Greek_UPSILON ] }; // υ Υ
+    key <AD07> { [           Greek_theta,    Greek_THETA ] }; // θ Θ
+    key <AD08> { [            Greek_iota,     Greek_IOTA ] }; // ι Ι
+    key <AD09> { [         Greek_omicron,  Greek_OMICRON ] }; // ο Ο
+    key <AD10> { [              Greek_pi,       Greek_PI ] }; // π Π
+
+    key <AC01> { [           Greek_alpha,    Greek_ALPHA ] }; // α Α
+    key <AC02> { [           Greek_sigma,    Greek_SIGMA ] }; // σ Σ
+    key <AC03> { [           Greek_delta,    Greek_DELTA ] }; // δ Δ
+    key <AC04> { [             Greek_phi,      Greek_PHI ] }; // φ Φ
+    key <AC05> { [           Greek_gamma,    Greek_GAMMA ] }; // γ Γ
+    key <AC06> { [             Greek_eta,      Greek_ETA ] }; // η Η
+    key <AC07> { [              Greek_xi,       Greek_XI ] }; // ξ Ξ
+    key <AC08> { [           Greek_kappa,    Greek_KAPPA ] }; // κ Κ
+    key <AC09> { [           Greek_lamda,    Greek_LAMDA ] }; // λ Λ
+    key <AC10> { [            dead_acute, dead_diaeresis ] }; // ´ ¨
+
+    key <AB01> { [            Greek_zeta,     Greek_ZETA ] }; // ζ Ζ
+    key <AB02> { [             Greek_chi,      Greek_CHI ] }; // χ Χ
+    key <AB03> { [             Greek_psi,      Greek_PSI ] }; // ψ Ψ
+    key <AB04> { [           Greek_omega,    Greek_OMEGA ] }; // ω Ω
+    key <AB05> { [            Greek_beta,     Greek_BETA ] }; // β Β
+    key <AB06> { [              Greek_nu,       Greek_NU ] }; // ν Ν
+    key <AB07> { [              Greek_mu,       Greek_MU ] }; // μ Μ
+
+    key <LSGT> { [         guillemotleft, guillemotright ] }; // « »
+};
+
+// ===========================================================================================
+// Greek - Extended                                                                          |
+// ===========================================================================================
+//
+// ┌─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┲━━━━━━━━━━━┓
+// │ ~   │ !   │ @   │ #   │ $   │ %   │ ^   │ &   │ *   │ (   │ )   │ _   │ +   ┃Backspace  ┃
+// │ `   │ 1   │ 2   │ 3 £ │ 4   │ 5 € │ 6   │ 7   │ 8   │ 9   │ 0 ° │ - ± │ =   ┃           ┃
+// ┢━━━━━┷━┱───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┺━┳━━━━━━━━━┫
+// ┃       ┃ :   │ Σ   │ Ε   │ Ρ   │ Τ   │ Υ   │ Θ   │ Ι   │ Ο   │ Π   │ {   │ }   ┃Enter    ┃
+// ┃Tab    ┃ ; · │ ς   │ ε € │ ρ ® │ τ   │ υ   │ θ   │ ι   │ ο   │ π   │ [   │ ]   ┃         ┃
+// ┣━━━━━━━┻┱────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┺┓        ┃
+// ┃Caps    ┃ Α   │ Σ   │ Δ   │ Φ   │ Γ   │ Η   │ Ξ   │ Κ   │ Λ   │ ¨   │ "   │ |   ┃        ┃
+// ┃Lock    ┃ α   │ σ   │ δ   │ φ   │ γ   │ η   │ ξ   │ κ   │ λ   │ ´   │ '   │ \   ┃        ┃
+// ┣━━━━━━━┳┹────┬┴────┬┴────┬┴────┬┴────┬┴────┬┴────┬┴────┬┴────┬┴────┬┴────┲┷━━━━━┻━━━━━━━━┫
+// ┃       ┃ »   │ Ζ   │ Χ   │ Ψ   │ Ω   │ Β   │ Ν   │ Μ   │ <   │ >   │ ?   ┃               ┃
+// ┃Shift  ┃ «   │ ζ   │ χ   │ ψ © │ ω   │ β   │ ν   │ μ   │ , « │ . » │ /   ┃Shift          ┃
+// ┣━━━━━━━╋━━━━━┷━┳━━━┷━━━┱─┴─────┴─────┴─────┴─────┴─────┴──┲━━┷━━━━┳┷━━━━━┻┳━━━━━━━┳━━━━━━┫
+// ┃       ┃       ┃       ┃                                  ┃       ┃       ┃       ┃      ┃
+// ┃Ctrl   ┃Meta   ┃Alt    ┃              Space               ┃AltGr  ┃Meta   ┃Menu   ┃Ctrl  ┃
+// ┗━━━━━━━┻━━━━━━━┻━━━━━━━┹──────────────────────────────────┺━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━━━━┛
+
+partial alphanumeric_keys alternate_group
+xkb_symbols "extended" {
+
+    include "gr(simple)"
+
+    name[Group1] = "Greek (extended)";
+
+    key.type[Group1] = "THREE_LEVEL";
+
+    key <TLDE> { [ NoSymbol, NoSymbol,  U2015 ] }; // ―
+    key <AB01> { [ NoSymbol, NoSymbol,  U00A7 ] }; // §
+    key <AE02> { [ NoSymbol, NoSymbol,  U00B2 ] }; // ²
+    key <AE03> { [ NoSymbol, NoSymbol,  U00B3 ] }; // ³
+    // for adding cubic sign £ symbol must move (like e.g. AE04 )
+    key <AE04> { [ NoSymbol, NoSymbol,       sterling ] }; // £
+    key <AD06> { [ NoSymbol, NoSymbol,       U00A5 ] }; // ¥
+    key <AE10> { [ NoSymbol, NoSymbol,         degree ] }; // °
+    key <AE11> { [ NoSymbol, NoSymbol,      plusminus ] }; // ±
+
+    key <AD01> { [ NoSymbol, NoSymbol, periodcentered ] }; // ·
+    key <AD04> { [ NoSymbol, NoSymbol,     registered ] }; // ®
+
+    key <AB03> { [ NoSymbol, NoSymbol,      copyright ] }; // ©
+    key <AB08> { [ NoSymbol, NoSymbol,  guillemotleft ] }; // «
+    key <AB09> { [ NoSymbol, NoSymbol, guillemotright ] }; // »
+
+    include "level3(ralt_switch)"
+    include "eurosign(5)"
+    include "eurosign(e)"
+};
+
+partial alphanumeric_keys alternate_group
+xkb_symbols "polytonic" {
+
+    include "gr(extended)"
+
+    name[Group1] = "Greek (polytonic)";
+
+    key.type[Group1] = "THREE_LEVEL";
+
+    key <AD11> { [ dead_tilde, dead_diaeresis, dead_macron ] }; // ~ ¨ ¯
+    key <AD12> { [  dead_iota,     VoidSymbol,  dead_breve ] }; // ͺ   ˘
+    key <AE05> { type[Group1]="FOUR_LEVEL",
+        [ 5,   percent,    U2030,   U2031 ] }; // ‰ ‱
+    key <AC02> { type[Group1]="FOUR_LEVEL",
+        [ Greek_sigma,    Greek_SIGMA,  U03DB,  U03DA ] }; // Ϛ ϛ STIGMATA
+    key <AC04> { type[Group1]="FOUR_LEVEL",
+        [ Greek_phi,    Greek_PHI,  U03DD,  U03DC ] }; //  ϝ Ϝ 
+    key <AD02> { type[Group1]="FOUR_LEVEL",
+        [ Greek_finalsmallsigma,    Greek_SIGMA, U03D9,  U03D8 ] }; // ϙ Ϙ 
+    key <AC07> { type[Group1]="FOUR_LEVEL",
+        [ Greek_xi,    Greek_XI, U03F3,  U037F ] }; // ϳ Ϳ
+    key <AD10> { type[Group1]="FOUR_LEVEL",
+        [ Greek_pi,    Greek_PI, U03D6,  U03D5 ] }; // ϖ ϕ
+    key <AB05> { type[Group1]="FOUR_LEVEL",
+        [ Greek_beta,    Greek_BETA, U03E1,  U03E0 ] }; // ϡ Ϡ
+    
+    key <AC10> { [ dead_acute, dead_psili  ] }; // ´ ̓ 
+    key <AC11> { type[Group1]="FOUR_LEVEL",
+                 [ dead_grave, dead_dasia, apostrophe, quotedbl  ] };
+                  
+    key <AC08> { type[Group1]="FOUR_LEVEL",
+                [ Greek_kappa, Greek_KAPPA,    U03D7,  U03CF ] };
+                 // κ Κ GREEK KAI SYMBOL
+};
+
+partial alphanumeric_keys alternate_group
+xkb_symbols "nodeadkeys" {
+
+    include "gr(simple)"
+
+    name[Group1] = "Greek (no dead keys)";
+
+    key <AC10> { [ semicolon, colon ] }; // ; :
+};
+
+// Greek layout rearranged as Colemak
+
+partial alphanumeric_keys alternate_group
+xkb_symbols "colemak" {
+
+    include "gr(basic)"
+
+    name[Group1] = "Greek (Colemak)";
+
+    key <AD01> { [             semicolon,          colon, periodcentered             ] };
+    key <AD02> { [ Greek_finalsmallsigma,    Greek_SIGMA,          U03DB,      U03DA ] };
+    key <AD03> { [             Greek_phi,      Greek_PHI,          U03D5             ] };
+    key <AD04> { [              Greek_pi,       Greek_PI,          U03E1,      U03E0 ] };
+    key <AD05> { [           Greek_gamma,    Greek_GAMMA,          U03DD,      U03DC ] };
+    key <AD06> { [              Greek_xi,       Greek_XI,          U037C,      U03FE ] };
+    key <AD07> { [           Greek_lamda,    Greek_LAMDA,          U03F2,      U03F9 ] };
+    key <AD08> { [           Greek_theta,    Greek_THETA,          U03D1,      U03F4 ] };
+    key <AD09> { [         Greek_upsilon,  Greek_UPSILON,          U03D2,      U03D2 ] };
+    key <AD10> { [            dead_acute, dead_diaeresis,     dead_acute, dead_psili ] };
+
+    key <AC01> { [           Greek_alpha,    Greek_ALPHA                             ] };
+    key <AC02> { [             Greek_rho,      Greek_RHO,     registered,      U03F1 ] };
+    key <AC03> { [           Greek_sigma,    Greek_SIGMA                             ] };
+    key <AC04> { [             Greek_tau,      Greek_TAU                             ] };
+    key <AC05> { [           Greek_delta,    Greek_DELTA,      downarrow,    uparrow ] };
+    key <AC06> { [             Greek_eta,      Greek_ETA                             ] };
+    key <AC07> { [              Greek_nu,       Greek_NU,          U0374,      U0375 ] };
+    key <AC08> { [         Greek_epsilon,  Greek_EPSILON,       EuroSign             ] };
+    key <AC09> { [            Greek_iota,     Greek_IOTA,          U037B,      U03FD ] };
+    key <AC10> { [         Greek_omicron,  Greek_OMICRON                             ] };
+
+    key <AB01> { [            Greek_zeta,     Greek_ZETA,          U037D,      U03FF ] };
+    key <AB02> { [             Greek_chi,      Greek_CHI,     rightarrow,  leftarrow ] };
+    key <AB03> { [             Greek_psi,      Greek_PSI,      copyright             ] };
+    key <AB04> { [           Greek_omega,    Greek_OMEGA,          U03D6             ] };
+    key <AB05> { [            Greek_beta,     Greek_BETA,          U03D0             ] };
+    key <AB06> { [           Greek_kappa,    Greek_KAPPA,          U03DF,      U03DE ] };
+    key <AB07> { [              Greek_mu,       Greek_MU,          U03FB,      U03FA ] };
+
+    key <CAPS> { [             BackSpace,      BackSpace,      BackSpace,  BackSpace ] };
+};
+
+// EXTRAS:
+
+partial alphanumeric_keys
+	xkb_symbols "sun_type6" {
+	include "sun_vndr/gr(sun_type6)"
+};

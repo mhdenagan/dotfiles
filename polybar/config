@@ -1,0 +1,325 @@
+;==========================================================
+;
+;
+;   ██████╗  ██████╗ ██╗  ██╗   ██╗██████╗  █████╗ ██████╗
+;   ██╔══██╗██╔═══██╗██║  ╚██╗ ██╔╝██╔══██╗██╔══██╗██╔══██╗
+;   ██████╔╝██║   ██║██║   ╚████╔╝ ██████╔╝███████║██████╔╝
+;   ██╔═══╝ ██║   ██║██║    ╚██╔╝  ██╔══██╗██╔══██║██╔══██╗
+;   ██║     ╚██████╔╝███████╗██║   ██████╔╝██║  ██║██║  ██║
+;   ╚═╝      ╚═════╝ ╚══════╝╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
+;
+;
+;   To learn more about how to configure Polybar
+;   go to https://github.com/polybar/polybar
+;
+;   The README contains a lot of information
+;
+;==========================================================
+[settings]
+throttle-output = 5
+throttle-output-for = 10
+screenchange-reload = true
+compositing-background = over
+compositing-foreground = over
+compositing-overline = over
+compositing-underline = over
+compositing-border = over
+
+format-foreground = #FF0000
+format-background = #00FF00
+format-underline =
+format-overline =
+format-spacing =
+format-padding =
+format-margin =
+format-offset =
+
+[colors]
+;background = ${xrdb:color0:#222}
+background = #80000000
+;background-alt = #444
+;foreground = ${xrdb:color7:#222}
+foreground = #f3f4f5
+;foreground-alt = #555
+;primary = #ffb52a
+;secondary = #e60053
+alert = #d08770
+volume-min = #a3be8c
+volume-med = #ebcd8b
+volume-max = #bf616a
+
+[bar/mybar]
+;monitor = ${env:MONITOR:HDMI-1}
+width = 100%
+height = 17
+;offset-x = 1%
+;offset-y = 1%
+radius = 0.0
+fixed-center = false
+bottom = false
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+;line-size = 3
+;line-color = #f00
+
+wm-restack = bspwm
+override-redirect = true
+
+enable-ipc = true
+
+border-size = 0
+border-color = #00000000
+
+padding-left = 0
+padding-right = 1
+
+module-margin-left = 0
+module-margin-right = 2
+
+font-0 = "LiberationSans:size=8;2"
+font-1 = "FontAwesome:size=8;2"
+font-2 = "NotoEmoji:scale=14;2"
+
+modules-left = bspwm
+modules-center = xwindow
+modules-right = mpd weather dzd news outlook mail pavolume xkeyboard pacman battery date
+;weather mail powermenu forecast news ### mpd weather mail pavolume xkeyboard battery ##center> xwindow
+tray-position = right
+tray-padding = 2
+tray-offset-x = 0
+tray-offset-y = 0
+tray-maxsize = 15
+tray-scale = 1.0
+tray-detached = false
+tray-background = ${colors.background}
+
+;scroll-up = bspwm-desknext
+;scroll-down = bspwm-deskprev
+
+[module/bspwm]
+type = internal/bspwm
+
+enable-click = true
+#enable-scroll = true
+#reverse-scroll = true
+pin-workspaces = true
+
+ws-icon-0 = 1;1
+ws-icon-1 = 2;2
+ws-icon-2 = 3;3
+ws-icon-3 = 4;4
+ws-icon-4 = 5;5
+ws-icon-5 = 6;6
+ws-icon-6 = 7;7
+ws-icon-7 = 8;8
+ws-icon-8 = 9;9
+ws-icon-9 = 10;10
+;ws-icon-default = ' '
+
+format = <label-state> <label-mode>
+
+label-focused = %icon%
+label-focused-background = ${colors.background}
+label-focused-padding = 1
+label-focused-foreground = #c1941a
+
+label-occupied = %icon%
+label-occupied-padding = 1
+label-occupied-background = ${colors.background}
+label-occupied-foreground = #666633
+;#033200
+;#666633
+
+label-urgent = %icon%
+label-urgent-padding = 1
+label-urgent-foreground = #FF0000
+label-urgent-background = ${colors.background}
+
+label-empty =
+label-empty-foreground = ${colors.foreground}
+label-empty-padding = 1
+label-empty-background = ${colors.background}
+
+label-monocle = "  "
+label-monocle-foreground = ${colors.foreground}
+label-tiled = "  "
+label-tiled-foreground = ${colors.foreground}
+label-floating = "  "
+label-floating-foreground = ${colors.foreground}
+
+format-foreground = ${colors.foreground}
+format-background = ${colors.background}
+
+[module/battery]
+type = internal/battery
+battery = BAT0
+adapter = ACAD
+full-at = 100
+
+format-charging = <animation-charging> <label-charging>
+label-charging = %percentage%%
+format-charging-foreground = ${colors.foreground}
+format-charging-background = ${colors.background}
+
+format-discharging = <ramp-capacity> <label-discharging>
+label-discharging = %percentage%%
+format-discharging-foreground = ${colors.foreground}
+format-discharging-background = ${colors.background}
+
+format-full-prefix = " "
+format-full-prefix-foreground = #a3c725
+format-full-foreground = ${colors.foreground}
+format-full-background = ${colors.background}
+
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+ramp-capacity-foreground = #c7ae25
+
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+animation-charging-foreground = #c1941a
+animation-charging-framerate = 750
+
+[module/xwindow]
+type = internal/xwindow
+label = %title%
+label-maxlen = 90
+format-foreground = ${colors.foreground}
+format-background = ${colors.background}
+
+[module/xkeyboard]
+type = internal/xkeyboard
+blacklist-0 = num lock
+
+label-layout = %layout%
+label-layout-underline = ${colors.secondary}
+format-foreground = ${colors.foreground}
+format-background = ${colors.background}
+label-indicator-padding = 2
+label-indicator-margin = 1
+label-indicator-background = ${colors.background}
+label-indicator-underline = ${colors.foreground}
+
+[module/mpd]
+type = internal/mpd
+format-online = "  <label-song>"
+#<icon-prev>  <icon-stop>  <toggle>  <icon-next>"
+icon-prev = 
+icon-stop = 
+icon-play = 
+icon-pause = 
+icon-next = 
+label-song-maxlen = 60
+label-song-ellipsis = true
+label-offline = 
+format-online-foreground = ${colors.foreground}
+format-online-background = ${colors.background}
+
+[module/pacman]
+type = custom/script
+exec = pacman.sh
+interval = 120
+label = %output%
+format-foreground = #c1941a
+format-background = ${colors.background}
+
+[module/pavolume]
+type = custom/script
+tail = true
+label = %output%
+exec = ~/.config/polybar/scripts/pavolume.sh --listen
+format-foreground = ${colors.foreground}
+format-background = ${colors.background}
+
+[module/dzd]
+type = custom/script
+interval = 1800
+exec = dzd.sh
+format-foreground = ${colors.foreground}
+format-background = ${colors.background}
+tail = true
+
+[module/weather]
+type = custom/script
+interval = 900
+exec = weather.sh
+format-foreground = ${colors.foreground}
+format-background = ${colors.background}
+tail = true
+
+[module/news]
+type = custom/script
+exec = news.sh
+interval = 60
+format-foreground = ${colors.foreground}
+format-background = ${colors.background}
+#click-right = newsboat -x reload
+#click-left = st -e newsboat
+
+[module/outlook]
+type = custom/script
+exec = mail.py
+interval = 120
+format-foreground = ${colors.foreground}
+format-background = ${colors.background}
+
+[module/mail]
+type = custom/ipc
+hook-0 = mailbox.sh
+format-foreground = ${colors.foreground}
+format-background = ${colors.background}
+initial = 1
+
+[module/date]
+type = internal/date
+interval = 5
+date = " %a, %d %b |"
+time = %H:%M
+format-prefix = " "
+format-prefix-foreground = #c1941a
+format-foreground = ${colors.foreground}
+format-background = ${colors.background}
+label = %date% %time%
+
+[module/powermenu]
+type = custom/menu
+
+expand-right = true
+
+format-spacing = 1
+
+label-open = 
+label-open-foreground = ${colors.secondary}
+label-close =  cancel
+label-close-foreground = ${colors.secondary}
+label-separator = |
+label-separator-foreground = ${colors.foreground-alt}
+
+menu-0-0 = reboot
+menu-0-0-exec = menu-open-1
+menu-0-1 = power off
+menu-0-1-exec = menu-open-2
+
+menu-1-0 = cancel
+menu-1-0-exec = menu-open-0
+menu-1-1 = reboot
+menu-1-1-exec = sudo reboot
+
+menu-2-0 = power off
+menu-2-0-exec = sudo poweroff
+menu-2-1 = cancel
+menu-2-1-exec = menu-open-0
+
+[global/wm]
+margin-top = 0
+margin-bottom = 0
+
+; vim:ft=dosini

@@ -1,0 +1,101 @@
+#!/usr/bin/sh
+cd /home/dmtr/Programs/LS_Betacode/
+
+epos=$1
+
+data=kenon
+
+case $epos in
+        a*)
+                data="lat.ls.perseus-engA.xml"
+                ;;
+        b*)
+                data="lat.ls.perseus-engB.xml"
+                ;;
+        c*)
+                data="lat.ls.perseus-engC.xml"
+                ;;
+        d*)
+                data="lat.ls.perseus-engD.xml"
+                ;;
+        e*)
+                data="lat.ls.perseus-engE.xml"
+                ;;
+        f*)
+                data="lat.ls.perseus-engF.xml"
+                ;;
+        g*)
+                data="lat.ls.perseus-engG.xml"
+                ;;
+        h*)
+                data="lat.ls.perseus-engH.xml"
+                ;;
+        i*)
+                data="lat.ls.perseus-engI.xml"
+                ;;
+        j*)
+                data="lat.ls.perseus-engJ.xml"
+                ;;
+        k*)
+                data="lat.ls.perseus-engK.xml"
+                ;;
+        l*)
+                data="lat.ls.perseus-engL.xml"
+                ;;
+        m*)
+                data="lat.ls.perseus-engM.xml"
+                ;;
+        n*)
+                data="lat.ls.perseus-engN.xml"
+                ;;
+        o*)
+                data="lat.ls.perseus-engO.xml"
+                ;;
+        p*)
+                data="lat.ls.perseus-engP.xml"
+                ;;
+        q*)
+                data="lat.ls.perseus-engQ.xml"
+                ;;
+        r*)
+                data="lat.ls.perseus-engR.xml"
+                ;;
+        s*)
+                data="lat.ls.perseus-engS.xml"
+                ;;
+        t*)
+                data="lat.ls.perseus-engT.xml"
+                ;;
+        u*)
+                data="lat.ls.perseus-engU.xml"
+                ;;
+        v*)
+                data="lat.ls.perseus-engV.xml"
+                ;;
+        x*)
+                data="lat.ls.perseus-engX.xml"
+                ;;
+        y*)
+                data="lat.ls.perseus-engY.xml"
+                ;;
+        z*)
+                data="lat.ls.perseus-engZ.xml"
+                ;;
+        *)
+                data="kenon"
+                ;;
+esac
+
+lex=$( (xmllint --xpath "//entryFree[@key=\"$epos\"]" $data ) > lex.xml)
+
+sed -i '1s/^/<?xml version="1.0" encoding="UTF-8"?>\n<?xml-stylesheet type="text\/css" href="dict.css"?>\n/' lex.xml
+
+arithmos=$(cat lex.xml | wc -l)
+
+if [ $arithmos -lt 3 ]
+then
+        echo "Non possum verbum - $epos invenire!"
+        echo "Maybe there are two similar words. Try appending -1 or -2 at the end of your query"
+else
+        surf lex.xml
+fi
