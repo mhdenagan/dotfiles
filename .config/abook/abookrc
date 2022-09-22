@@ -1,0 +1,2 @@
+field photo = Photo
+set preserve_fields=all

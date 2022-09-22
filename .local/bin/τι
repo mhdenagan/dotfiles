@@ -1,0 +1,21 @@
+#!/usr/bin/sh
+cd /home/dmtr/progs/LSJLogeion/
+
+epos=$1
+
+grep -F \"$epos\" grc.lsj.xml > lex.xml
+sed -i '1s/^/<?xml version="1.0" encoding="UTF-8"?>\n<?xml-stylesheet type="text\/css" href="dict.css"?>\n/' lex.xml
+
+arithmos=$(cat lex.xml | wc -l)
+
+if [ $arithmos -lt 3 ]
+then
+        notify-send -u low "Οὐχ οἷός τ' εἰμι εὑρεῖν τὴν λέξιν - $epos" && setxkbmap -layout us && pkill -RTMIN+22 dwmblocks
+elif [ $arithmos -gt 3 ]
+then
+        sed -i '3i <text>' lex.xml
+        sed -i -e '$a <\/text>' lex.xml
+        setxkbmap -layout us && pkill -RTMIN+22 dwmblocks && surf lex.xml
+else
+        setxkbmap -layout us && pkill -RTMIN+22 dwmblocks && surf lex.xml
+fi
