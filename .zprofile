@@ -16,12 +16,9 @@ export TERMINAL="st"
 export BROWSER="librewolf"
 
 #Fontpreview
-#export FONTPREVIEW_PREVIEW_TEXT="This is english example.\nПример на русском языке.\nСрпски иде онда овде.\nταῦτα ἑλληνιστὶ γεγραμμένα ἐστί.\n"
-export FONTPREVIEW_PREVIEW_TEXT="Песнь первая.\nПеснь вторая.\nПеснь третия."
+export FONTPREVIEW_PREVIEW_TEXT="This is english example.\nПример на русском языке.\nСрпски иде онда овде.\nταῦτα ἑλληνιστὶ γεγραμμένα ἐστί.\n"
+#export FONTPREVIEW_PREVIEW_TEXT="Песнь первая.\nПеснь вторая.\nПеснь третия."
 #export FONTPREVIEW_PREVIEW_TEXT="И҆ ви́дѣ бг҃ъ свѣ́тъ, ꙗ҆́кѡ добро̀,\n и҆ разлꙋчѝ бг҃ъ междꙋ̀\n свѣ́томъ и҆ междꙋ̀ тьмо́ю.\n"
-
-#ignore upper and lowercase when TAB completion
-bind "set completion-ignore-case on"
 
 #youtube-dl
 alias yt="pipe-viewer"
