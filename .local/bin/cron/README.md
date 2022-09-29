@@ -9,3 +9,9 @@ export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$(id -u $USER)/bus; export D
 ```
 
 This ensures that notifications will display, xdotool commands will function and environmental variables will work as well.
+
+CUSTOM:
+
+`*/3 * * * * /usr/bin/env DISPLAY=:0 /usr/bin/mailsync2'
+'*/45 * * * * /usr/bin/env DISPLAY=:0 /usr/bin/checkup''
+'*/10 * * * * /usr/bin/env DISPLAY=:0 /usr/bin/newsup''
