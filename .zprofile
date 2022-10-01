@@ -13,7 +13,7 @@ unsetopt PROMPT_SP
 # Default programs:
 export EDITOR="nvim"
 export TERMINAL="st"
-export BROWSER="librewolf"
+export BROWSER="brave"
 
 #Fontpreview
 export FONTPREVIEW_PREVIEW_TEXT="This is english example.\nПример на русском языке.\nСрпски иде онда овде.\nταῦτα ἑλληνιστὶ γεγραμμένα ἐστί.\n"
