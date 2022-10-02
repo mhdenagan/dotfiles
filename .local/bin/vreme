@@ -1,11 +1,11 @@
 #!/bin/sh
 
-dzd=$(curl -sf wttr.in | sed '16q;d' | grep -wo "[0-9]*%" | sort -rn | sed "s/^/💧/g;1q" | tr -d '\n')
-pogoda=$(curl -sf wttr.in/?format="%t+%w+%m\n" | awk '{print "🌞"$1 " " $2 " " $3}')
-prognoza=$(curl -sf wttr.in | sed '13q;d' | grep -o "m\\([-+]\\)*[0-9]\\+" | sed 's/+//g' | sort -n -t 'm' -k 2n | sed -e 1b -e '$!d' | tr '\n|m' ' ' | awk '{print "🔻" $1 "°" "🔺" $2 "°"}')
+#dzd=$(curl -sf wttr.in | sed '16q;d' | grep -wo "[0-9]*%" | sort -rn | sed "s/^/💧/g;1q" | tr -d '\n')
+pogoda=$(curl -sf "wttr.in/$LOCATION?format=%c%t+%w+%m\n")
+#prognoza=$(curl -sf wttr.in | sed '13q;d' | grep -o "m\\([-+]\\)*[0-9]\\+" | sed 's/+//g' | sort -n -t 'm' -k 2n | sed -e 1b -e '$!d' | tr '\n|m' ' ' | awk '{print "🔻" $1 "°" "🔺" $2 "°"}')
 
 if [ $(echo "$pogoda" | grep -E "(Unknown|curl|HTML)" | wc -l) -gt 0 ]; then
     echo "недоступно"
 else
-    echo "$pogoda$dzd $prognoza"
+    echo "$pogoda"
 fi
