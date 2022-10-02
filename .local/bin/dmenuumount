@@ -10,6 +10,7 @@ unmountusb() {
 	chosen="$(echo "$chosen" | awk '{print $1}')"
 	[ -z "$chosen" ] && exit
 	sudo -A umount "$chosen" && notify-send "💻 USB unmounting" "$chosen unmounted."
+    pkill -RTMIN+2 "${STATUSBAR:-dwmblocks}"
 	}
 
 unmountandroid() { \

@@ -3,7 +3,7 @@
 # Status bar module for disk space
 # $1 should be drive mountpoint, otherwise assumed /.
 
-location=~/temp/usb
+location=/mnt
 
 [ -d "$location" ] || exit
 
@@ -20,4 +20,4 @@ case "$location" in
 	*) icon="🖥";;
 esac
 
-printf "%s %s\n" "$icon" "$(df -h "$location" | awk ' /[0-9]/ {print $5}')"
+printf "%s" "$(df -h "$location" | grep "mnt" | awk '{if ($6 == "/mnt") print "💾" $5 }')"
