@@ -6,7 +6,7 @@ sudo pacman -Sy
 
 pkill -RTMIN+8 "${STATUSBAR:-dwmblocks}"
 
-if pacman -Qu | grep -Fcv "\[ignored\]"
-then
-	notify-send "🎁 Repository Sync" "Updates available. Click statusbar icon (📦) for update."
-fi
+#if pacman -Qu | grep -Fcv "\[ignored\]"
+#then
+#	notify-send "🎁 Repository Sync" "Updates available. Click statusbar icon (📦) for update."
+#fi
