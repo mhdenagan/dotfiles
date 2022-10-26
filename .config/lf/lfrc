@@ -131,7 +131,7 @@ map gr cd ~/progs
 map gc cd ~/.config
 map gs cd ~/.scripts
 #map gu cd /run/media/dmtr/
-map gu cd ~/mnt
+map gu cd /mnt
 map gt cd ~/temp
 map gf cd ~/fonts
 
